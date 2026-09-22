@@ -1,0 +1,20 @@
+# Runtime do Ren'Py empacotado junto - não é código do projeto
+lib/
+renpy/
+tutorial_7.app/
+tutorial_7.exe
+tutorial_7.py
+tutorial_7.sh
+
+# Compilados do Ren'Py - regerados a partir dos .rpy
+*.rpyc
+*.rpym
+*.rpymc
+*.rpyb
+
+game/cache/
+game/saves/
+
+# Logs de execução
+log.txt
+traceback.txt
