@@ -18,6 +18,7 @@
 label cap2_checkpoint:
 
     $ vidas = VIDAS_INICIAIS
+    $ ambiente(None)
     $ checkpoint_atual = "cap2_checkpoint"
     $ nome_dela = "Mirela"
 
@@ -30,8 +31,10 @@ label cap2_checkpoint:
 
     $ quando = "2014 · lembrança dele"
 
-    scene black
+    scene bg sala_vazia
     with dissolve
+
+    $ ambiente("sala")
 
     dh "Três semanas. Foi o tempo até alguém reparar de verdade."
 
@@ -52,6 +55,8 @@ label cap2_fase7:
     scene bg quarto
     show daniel idle at center
     with dissolve
+
+    $ ambiente("quarto")
 
     "O violão continuava encostado no canto do quarto, com a mesma corda desafinada de sempre."
 
@@ -88,7 +93,7 @@ label cap2_fase7:
 # ---- FASE 8 — tutorial_menus (escolha) -------------------------
 label cap2_fase8:
 
-    "A lista de contatos tinha três nomes que talvez soubessem de alguma coisa. O crédito do telefone dava pra uma ligação."
+    "A lista de contatos tinha três nomes que talvez soubessem de alguma coisa. O cartão do orelhão tinha crédito pra uma ligação."
 
     dh "Uma ligação. Eu fiquei uma tarde inteira decidindo pra quem."
 
@@ -108,8 +113,11 @@ label cap2_fase8:
     if not _return:
         jump game_over
 
-    scene bg quarto
+    scene bg orelhao
     show daniel idle at center
+    with dissolve
+
+    $ ambiente("rua")
 
     menu:
         "Pra quem ele liga?"
@@ -130,8 +138,11 @@ label cap2_fase8:
         "Pra Lucy.":
             $ primeira_ligacao = "lucy"
             l "Ai, Daniel, deixa isso pra lá. Ela sumiu porque quis sumir."
+            l "Ela vivia dizendo que um dia ia embora. Foi. Pronto."
+            "E desligou antes que ele respondesse."
             mh "A Lucy disse isso?"
-            dh "Ela tava com raiva. Achava que você tinha largado a gente."
+            dh "Com raiva. A voz tremendo. Na hora eu achei que era raiva de você."
+            mh "Era medo. Ela tinha medo disso desde o primeiro ano."
 
     dh "Foi a única que eu consegui fazer."
 
@@ -155,8 +166,11 @@ label cap2_fase9:
     if not _return:
         jump game_over
 
-    scene bg quarto
+    scene bg laboratorio
     show daniel idle at center
+    with dissolve
+
+    $ ambiente("laboratorio")
 
     $ busca = renpy.input("Quem você está procurando?", default="Mirela").strip()
     $ busca = busca or "Mirela"
@@ -176,6 +190,8 @@ label cap2_fase10:
 
     scene bg quarto
     show daniel idle at center
+
+    $ ambiente("quarto")
 
     "No fundo da gaveta, uma fita que alguém tinha gravado na festa de junho."
 
@@ -234,7 +250,7 @@ label cap2_fase11:
     if not _return:
         jump game_over
 
-    scene black
+    scene cg carta
     with dissolve
 
     "A direção informa que entrou em contato com os responsáveis pela aluna."
@@ -285,19 +301,31 @@ label cap2_fase12:
     show daniel idle at left
     with dissolve
 
+    $ ambiente("patio_dia")
+
+    "A Lucy tinha mudado de lugar na sala. Não conseguia mais sentar do lado da cadeira vazia."
+
     l "Você ainda pensa nisso, né?"
 
     show daniel sad at left
 
     d "Todo dia um pouco menos."
 
-    l "Então tá funcionando."
+    l "Eu também penso. Ela era minha dupla, Daniel. Ela me contava tudo."
 
-    "Eles começaram a namorar em outubro. A Lucy achava graça do assunto, e com o tempo ele parou de puxar."
+    l "...Quase tudo."
+
+    d "Quase?"
+
+    l "Esquece. Não é meu pra contar."
+
+    l "Mas tá funcionando, né? Todo dia um pouco menos."
+
+    "Eles começaram a namorar em outubro. No começo era só pra ter com quem sentir falta da mesma pessoa."
 
     mh "Você e a Lucy?"
 
-    dh "Três anos. Acabou bem. A gente ainda se fala."
+    dh "Três anos. Acho que a gente se juntou pra sentir sua falta junto. Quando isso passou, acabou. Acabou bem."
 
     mh "Que bom. ...Sério. Que bom."
 
@@ -350,6 +378,17 @@ label cap2_fase13:
     dh "Quarenta e três visualizações. Umas trinta são minhas."
 
     mh "...E depois?"
+
+    $ quando = "2024 · agora"
+
+    scene bg saguao anoitecer
+    show mirela idle at right
+    show daniel idle at left
+    with dissolve
+
+    $ ambiente("coquetel")
+
+    "Lá fora tinha começado a escurecer. O coquetel já estava pela metade."
 
     dh "Depois foram dez anos. E hoje."
 

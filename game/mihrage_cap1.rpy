@@ -36,8 +36,10 @@ label prologo:
 
     centered "{size=+10}MIHRAGE{/size}"
 
-    scene bg congresso
+    scene bg saguao tarde
     with dissolve
+
+    $ ambiente("coquetel")
 
     "Congresso de automação e controle, fim do primeiro dia. Coquetel no saguão do hotel: taças de plástico, conversa de crachá."
 
@@ -99,6 +101,7 @@ label prologo:
 label cap1_checkpoint:
 
     $ vidas = VIDAS_INICIAIS
+    $ ambiente(None)
     $ checkpoint_atual = "cap1_checkpoint"
     $ nome_dela = "Mirela"
 
@@ -207,9 +210,19 @@ label cap1_fase3:
 
     mh "Essa fui eu, naquela noite. Sem nome na frente, porque eu ainda não me montei."
 
-    mh "Agora ela. E ela merece mais que uma frase solta."
+    mh "Agora ela. A Lucy."
 
-    dh "A Lucy."
+    mh "Minha dupla desde o primeiro ano. Sentava do meu lado em todas as aulas, copiava meu caderno e me devolvia com desenho na margem."
+
+    mh "Foi ela que inventou o Mih."
+
+    mh "E foi a única pessoa que soube o que eu ia te falar lá em cima."
+
+    dh "...A Lucy sabia?"
+
+    mh "Depois. Deixa eu montar ela primeiro."
+
+    mh "Ela merece mais que uma frase solta. Ela merece um nome."
 
     hide screen reconstruindo
 
@@ -234,7 +247,7 @@ label cap1_fase3:
     show screen reconstruindo
     mh "A voz dela. Primeiro a voz."
     dh "\"Mih.\" Fazia anos que eu não ouvia ninguém te chamar assim."
-    mh "Só a Lucy chamava. Foi ela que inventou."
+    mh "Só ela chamava assim. Pra todo o resto do CEFET eu era Mirela."
     hide screen reconstruindo
 
 
@@ -269,12 +282,18 @@ label cap1_fase4:
     scene bg patio
     with dissolve
 
+    $ ambiente("festa")
+
     "A festa. Aquela festa boba no meio do semestre, com a caixa de som alta demais pro tamanho do pátio."
 
     show lucy happy
     with dissolve
 
     l "Demorou, hein. Achei que tinha me largado sozinha aqui."
+
+    mh "Ela vivia dizendo isso. Que um dia eu ia largar ela sozinha."
+
+    dh "..."
 
     "O rosto da Lucy. Inteiro, do jeito que era."
 
@@ -356,6 +375,12 @@ label cap1_fase5:
 
     l "Vão lá. Eu fico aqui vendo as bolsas de vocês, como sempre."
 
+    "A Lucy piscou pra ela quando o Daniel virou de costas. Só pra ela."
+
+    dh "Ela piscou pra você?"
+
+    mh "Você não perdia uma, né. Só perdia as importantes."
+
     hide lucy
     with dissolve
 
@@ -382,7 +407,7 @@ label cap1_fase6:
     call fase_debug(
         "A SUBIDA — o corte está seco demais",
         [
-            "scene bg morro",
+            "scene bg trilha",
             "show mirela happy",
             "with",
         ],
@@ -397,18 +422,28 @@ label cap1_fase6:
     if not _return:
         jump game_over
 
-    scene bg morro
+    scene bg trilha
     show mirela happy
     show daniel sombra at right, silhueta_pessoa
     with slowdissolve
 
+    $ ambiente("morro")
+
     "O barulho da festa foi ficando pra trás aos poucos, abafado pelo mato, até sobrar só o vento e as luzes da cidade lá embaixo."
+
+    scene bg morro
+    show mirela happy
+    show daniel sombra at right, silhueta_pessoa
+    with dissolve
 
     m "Daniel."
 
     d "Oi."
 
-    "Ela tinha uma frase guardada fazia semanas. Tinha ensaiado no ônibus, no banho, na fila do bandejão."
+    scene cg morro
+    with dissolve
+
+    "Ela tinha uma frase guardada fazia semanas. Tinha ensaiado no ônibus, no banho, na fila do bandejão. Tinha ensaiado com a Lucy."
 
     show screen reconstruindo
 
@@ -419,6 +454,11 @@ label cap1_fase6:
     mh "E essa parte não tem comando nenhum. O que eu não falei naquele dia não tem como fazer aparecer."
 
     hide screen reconstruindo
+
+    scene bg morro
+    show mirela concerned
+    show daniel sombra at right, silhueta_pessoa
+    with dissolve
 
     m "...Deixa pra lá. Vamos descer."
 
@@ -438,6 +478,15 @@ label cap1_fase6:
     "Foi a última vez que alguém do CEFET viu Mirela."
 
     "Ela não voltou pras aulas na semana seguinte. Nem na outra. Nem nunca."
+
+    $ quando = "2024 · agora"
+
+    scene bg saguao tarde
+    show mirela sad at right
+    show daniel sad at left
+    with dissolve
+
+    $ ambiente("coquetel")
 
     mh "Daqui pra frente eu não sei nada. Eu não tava lá."
 

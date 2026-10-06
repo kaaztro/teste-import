@@ -25,6 +25,7 @@
 label cap3_checkpoint:
 
     $ vidas = VIDAS_INICIAIS
+    $ ambiente(None)
     $ checkpoint_atual = "cap3_checkpoint"
     $ nome_dela = "Mirela"
 
@@ -57,6 +58,8 @@ label cap3_fase14:
     scene bg aeroporto
     show daniel idle at left
     with dissolve
+
+    $ ambiente("aeroporto")
 
     "Desembarque em Salvador, três da tarde, o saguão cheio."
 
@@ -186,8 +189,10 @@ label cap3_fase17:
 
     scene bg aeroporto
     show daniel idle at left
-    scene bg congresso
+    scene bg saguao tarde
     with slowdissolve
+
+    $ ambiente("coquetel")
 
     "Congresso de automação e controle, auditório lateral, crachás azuis."
 
@@ -199,7 +204,7 @@ label cap3_fase18:
     $ quando = "2024 · hoje, no coquetel"
     $ nome_dela = "Mirela"
 
-    scene bg congresso
+    scene bg saguao tarde
 
     "O coquetel do fim do primeiro dia. Vinte e poucas pessoas, taças de plástico, conversa de crachá."
 
@@ -220,7 +225,7 @@ label cap3_fase18:
     if not _return:
         jump game_over
 
-    scene bg congresso
+    scene bg saguao tarde
     show mirela happy at right
     show daniel idle at left
     with dissolve
@@ -255,7 +260,7 @@ label cap3_fase19:
     # quem ela era.
     $ nome_dela = "Moça do café"
 
-    scene bg congresso
+    scene bg saguao tarde
     show mirela happy at right
     show daniel idle at left
     with dissolve
@@ -276,7 +281,7 @@ label cap3_fase19:
 # ---- FASE 20 — transform_properties (escrita) ------------------
 label cap3_fase20:
 
-    scene bg congresso
+    scene bg saguao tarde
     show mirela happy at right
     show daniel idle at left
 
@@ -298,7 +303,7 @@ label cap3_fase20:
     if not _return:
         jump game_over
 
-    scene bg congresso
+    scene bg saguao tarde
     show mirela happy at truecenter
     with Dissolve(1.0)
 
@@ -324,12 +329,14 @@ label cap3_fase21:
     $ quando = "2024 · agora"
     $ nome_dela = "Mirela"
 
-    scene bg congresso
+    scene bg saguao noite
     show mirela happy at right
     show daniel idle at left
     with dissolve
 
-    "O saguão já tinha esvaziado pela metade. Alguém recolhia as taças da mesa do café."
+    $ ambiente("saguao_vazio")
+
+    "Já era noite. O saguão tinha esvaziado quase todo; alguém empilhava cadeiras perto da mesa do café."
 
     d "Você mudou tudo. O sotaque, o cabelo, o jeito de vestir. Até a profissão: você queria ser professora."
 
@@ -351,7 +358,7 @@ label cap3_fase21:
     if not _return:
         jump game_over
 
-    scene bg congresso
+    scene bg saguao noite
     show mirela happy at right
     show daniel idle at left
 
@@ -363,7 +370,7 @@ label cap3_fase21:
 # ---- FASE 22 — styles (debug) ----------------------------------
 label cap3_fase22:
 
-    scene bg congresso
+    scene bg saguao noite
     show mirela concerned at right
     show daniel idle at left
 
@@ -404,7 +411,7 @@ label cap3_fase22:
 # ---- FASE 23 — tutorial_screens (escolha) ----------------------
 label cap3_fase23:
 
-    scene bg congresso
+    scene bg saguao noite
     show mirela concerned at right
     show daniel idle at left
     with dissolve
@@ -427,7 +434,7 @@ label cap3_fase23:
     if not _return:
         jump game_over
 
-    scene bg congresso
+    scene bg saguao noite
     show mirela concerned at right
     show daniel idle at left
 
@@ -437,11 +444,21 @@ label cap3_fase23:
 
     d "Eu sei. Eu tava lá também."
 
+    m "A Lucy sabia. Eu contei pra ela uma semana antes. Ela me fez ensaiar a frase umas vinte vezes."
+
+    d "A Lucy sabia."
+
+    d "Em 2014 ela me disse que você contava tudo pra ela. \"Quase tudo.\" Eu nunca entendi aquele quase."
+
+    m "Ela prometeu que não ia contar. Pelo jeito, cumpriu. Dez anos."
+
+    d "Dez anos."
+
 
 # ---- FASE 24 — screen_displayables (escrita) -------------------
 label cap3_fase24:
 
-    scene bg congresso
+    scene bg saguao noite
     show mirela happy at right
     show daniel idle at left
 
@@ -463,11 +480,19 @@ label cap3_fase24:
     if not _return:
         jump game_over
 
-    scene bg congresso
+    scene bg saguao noite
     show mirela concerned at right
     show daniel idle at left
 
+    scene cg print
+    with dissolve
+
     "Um quadro só, borrado, tirado da fita da festa. A Lucy rindo perto da caixa de som. Ele de costas. E no canto, meio cortada, ela."
+
+    scene bg saguao noite
+    show mirela concerned at right
+    show daniel idle at left
+    with dissolve
 
     m "Eu não tenho nenhuma foto dessa época. Nenhuma."
 
@@ -481,7 +506,7 @@ label cap3_fase24:
 # ---- FASE 25 — demo_minigame (escolha) -------------------------
 label cap3_fase25:
 
-    scene bg congresso
+    scene bg saguao noite
     show mirela vhappy at right
     show daniel idle at left
 
@@ -505,7 +530,7 @@ label cap3_fase25:
     if not _return:
         jump game_over
 
-    scene bg congresso
+    scene bg saguao noite
     show mirela vhappy at right
     show daniel idle at left
 
@@ -562,7 +587,7 @@ label cap3_fase26:
 
     $ nome_dela = NOME_NOVO
 
-    scene bg congresso
+    scene bg saguao noite
     show mirela happy at right
     show daniel idle at left
     with dissolve
@@ -589,7 +614,26 @@ label cap3_fase26:
 
     play music "sunflower-slow-drag.ogg" fadein 2
 
+    scene cg final
+    with dissolve
+
+    $ ambiente(None)
+
     "Ele pôs o celular na mesa, entre as duas taças vazias, e deixou tocar."
+
+    "Antes da música acabar, ele pegou o celular de volta, digitou duas palavras e mandou."
+
+    d "{i}Achei ela.{/i}"
+
+    "O celular vibrou na mesa quase na mesma hora."
+
+    l "ONDE"
+
+    l "me liga AGORA"
+
+    m "Ela não mudou nada."
+
+    d "Nem um pouco."
 
     "Não teve final feliz, porque dez anos não voltam. Mas ela estava viva, estava inteira, e tinha um nome que ninguém tinha escolhido por ela."
 
