@@ -9,6 +9,8 @@ tutorial_7.sh
 # Compilados do Ren'Py - regerados a partir dos .rpy
 *.rpyc
 *.rpym
+# ...mas este é código-fonte do tutorial, não compilado
+!game/tutorial_director.rpym
 *.rpymc
 *.rpyb
 
