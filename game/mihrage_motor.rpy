@@ -50,11 +50,44 @@ define sistema = Character("SISTEMA", who_color="#ff6b6b", what_color="#ffb3b3")
 # ==========================================
 # Quando a arte final chegar, basta trocar o arquivo à direita.
 
-image bg patio = "bg whitehouse.jpg"
-image bg morro = "bg washington.jpg"
-image bg quarto = "bg washington.jpg"
-image bg aeroporto = "bg washington.jpg"
+# --- Cenários ------------------------------------------------------
+# Placeholders tingidos até a arte final chegar. Pra trocar: ponha o
+# arquivo em game/images/cenarios/ e mude só o lado direito da linha.
+# Prompts de cada um: no art bible (Design System) e no fim deste bloco.
+
+# O canto do saguão do congresso, onde a conversa inteira acontece.
+# Ele vai esvaziando: tarde (prólogo) -> anoitecer -> noite (fim).
+image bg saguao tarde = "bg whitehouse.jpg"
+image bg saguao anoitecer = Transform("bg whitehouse.jpg", matrixcolor=TintMatrix("#e6a77a") * BrightnessMatrix(-0.08))
+image bg saguao noite = Transform("bg whitehouse.jpg", matrixcolor=TintMatrix("#7d8ab8") * BrightnessMatrix(-0.25))
 image bg congresso = "bg whitehouse.jpg"
+
+# 2014
+image bg patio = Transform("bg whitehouse.jpg", matrixcolor=TintMatrix("#ffcf8a") * BrightnessMatrix(-0.15))
+image bg trilha = Transform("bg washington.jpg", matrixcolor=TintMatrix("#7f93c4") * BrightnessMatrix(-0.30))
+image bg morro = Transform("bg washington.jpg", matrixcolor=TintMatrix("#8fa0d0") * BrightnessMatrix(-0.20))
+image bg sala_vazia = Transform("bg whitehouse.jpg", matrixcolor=SaturationMatrix(0.3))
+image bg quarto = Transform("bg washington.jpg", matrixcolor=TintMatrix("#f0c9a0"))
+image bg orelhao = Transform("bg washington.jpg", matrixcolor=TintMatrix("#ffb070") * BrightnessMatrix(-0.05))
+image bg laboratorio = Transform("bg whitehouse.jpg", matrixcolor=TintMatrix("#c8e0d8"))
+
+# 2024
+image bg aeroporto = Transform("bg washington.jpg", matrixcolor=SaturationMatrix(0.6))
+
+# --- Ilustrações de momentos-chave (CG) ------------------------------
+# Tela cheia. Por enquanto um cartão com a descrição da cena.
+init python:
+    def cg_provisorio(descricao, fundo):
+        return Fixed(
+            Solid(fundo),
+            Text("[[ " + descricao + " ]", size=34, color="#f6f1ea",
+                 xalign=0.5, yalign=0.45, textalign=0.5, xmaximum=900),
+            )
+
+image cg carta = cg_provisorio("CG: a carta da direção, envelope pardo aberto", "#5b4a33")
+image cg morro = cg_provisorio("CG: os dois de costas no alto do morro, a cidade acesa lá embaixo", "#1c2540")
+image cg print = cg_provisorio("CG: o print da fita no celular, ela cortada no canto do quadro", "#2b2b33")
+image cg final = cg_provisorio("CG: o celular na mesa entre duas taças vazias, a música tocando", "#2a2236")
 
 # Sprites dos personagens: game/images/personagens/ (500x500, cortados
 # na cintura). O zoom 1.3 deixa eles na altura dos sprites do tutorial.
@@ -101,6 +134,9 @@ default quando = ""
 # Módulo em andamento (vai pro caderno junto com a lição).
 default modulo_atual = ""
 default quando_antes = ""
+
+# Som ambiente da cena atual (volta depois de cada módulo).
+default ambiente_atual = None
 
 # Caderno: lista de (módulo, lição) já vistas.
 default caderno = []
@@ -160,6 +196,22 @@ init python:
                 return True
 
         return False
+
+    # Som ambiente: põe um .ogg em game/audio/ambiente/<nome>.ogg e ele
+    # toca em loop. Se o arquivo ainda não existir, só não toca nada.
+    renpy.music.register_channel("ambiente", mixer="sfx", loop=True)
+
+    def ambiente(nome=None, guardar=True):
+        if guardar:
+            store.ambiente_atual = nome
+        if not nome:
+            renpy.music.stop(channel="ambiente", fadeout=1.0)
+            return
+        arquivo = "audio/ambiente/" + nome + ".ogg"
+        if renpy.loadable(arquivo):
+            renpy.music.play(arquivo, channel="ambiente", fadein=1.0, if_changed=True)
+        else:
+            renpy.music.stop(channel="ambiente", fadeout=1.0)
 
     def anota(licao):
         """Guarda a lição no caderno (uma vez só por módulo+lição)."""
@@ -298,11 +350,14 @@ label modulo(tutorial, numero, titulo, com_menu=False):
     if com_menu:
         sistema "Esse módulo tem um menu de tópicos. Vê quantos quiser; a última opção do menu te devolve pra conversa."
 
+    $ ambiente(None, guardar=False)
     $ reset_example()
     call expression tutorial
 
     scene black
     with dissolve
+
+    $ ambiente(ambiente_atual)
 
     $ quando = quando_antes
 
