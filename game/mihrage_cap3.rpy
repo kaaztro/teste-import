@@ -55,6 +55,7 @@ label cap3_fase14:
     $ quando = "2024 · hoje cedo"
 
     scene bg aeroporto
+    show daniel idle at left
     with dissolve
 
     "Desembarque em Salvador, três da tarde, o saguão cheio."
@@ -78,6 +79,7 @@ label cap3_fase14:
         jump game_over
 
     scene bg aeroporto
+    show daniel idle at left
 
     d "{i}É ela. Tem que ser ela.{/i}"
 
@@ -124,6 +126,7 @@ label cap3_fase16:
     $ quando = "2024 · hoje cedo"
 
     scene bg aeroporto
+    show daniel idle at left
 
     dh "Hoje, no aeroporto, eu me virei rápido demais."
 
@@ -148,9 +151,12 @@ label cap3_fase16:
         jump game_over
 
     scene bg aeroporto
+    show daniel idle at left
     with vpunch
 
     "Não era ela. Uma desconhecida, incomodada com o homem que a encarava no meio do saguão."
+
+    show daniel sad at left
 
     d "Desculpa. Achei que fosse outra pessoa."
 
@@ -179,6 +185,7 @@ label cap3_fase17:
         jump game_over
 
     scene bg aeroporto
+    show daniel idle at left
     scene bg congresso
     with slowdissolve
 
@@ -215,6 +222,7 @@ label cap3_fase18:
 
     scene bg congresso
     show mirela happy at right
+    show daniel idle at left
     with dissolve
 
     "Uma mulher perto da mesa de café, explicando alguma coisa com as duas mãos."
@@ -249,6 +257,7 @@ label cap3_fase19:
 
     scene bg congresso
     show mirela happy at right
+    show daniel idle at left
     with dissolve
 
     m "Você é do Rio, né? Dá pra ouvir de longe."
@@ -269,6 +278,7 @@ label cap3_fase20:
 
     scene bg congresso
     show mirela happy at right
+    show daniel idle at left
 
     "Ela falava rápido, cortava a própria frase pra rir no meio, e apoiava o peso numa perna só."
 
@@ -315,7 +325,8 @@ label cap3_fase21:
     $ nome_dela = "Mirela"
 
     scene bg congresso
-    show mirela happy at center
+    show mirela happy at right
+    show daniel idle at left
     with dissolve
 
     "O saguão já tinha esvaziado pela metade. Alguém recolhia as taças da mesa do café."
@@ -341,7 +352,8 @@ label cap3_fase21:
         jump game_over
 
     scene bg congresso
-    show mirela happy at center
+    show mirela happy at right
+    show daniel idle at left
 
     m "Por fora. O motor é o mesmo."
 
@@ -352,7 +364,8 @@ label cap3_fase21:
 label cap3_fase22:
 
     scene bg congresso
-    show mirela concerned at center
+    show mirela concerned at right
+    show daniel idle at left
 
     m "Sabe o que é estranho? Desde que você falou meu nome, as coisas tão voltando. Com cor."
 
@@ -392,7 +405,8 @@ label cap3_fase22:
 label cap3_fase23:
 
     scene bg congresso
-    show mirela concerned at center
+    show mirela concerned at right
+    show daniel idle at left
     with dissolve
 
     m "Vem tudo de uma vez. Uma por cima da outra."
@@ -414,7 +428,8 @@ label cap3_fase23:
         jump game_over
 
     scene bg congresso
-    show mirela concerned at center
+    show mirela concerned at right
+    show daniel idle at left
 
     m "Eu tinha dezoito anos."
 
@@ -427,7 +442,8 @@ label cap3_fase23:
 label cap3_fase24:
 
     scene bg congresso
-    show mirela happy at center
+    show mirela happy at right
+    show daniel idle at left
 
     d "Espera. Deixa eu te mostrar uma coisa."
 
@@ -448,13 +464,16 @@ label cap3_fase24:
         jump game_over
 
     scene bg congresso
-    show mirela concerned at center
+    show mirela concerned at right
+    show daniel idle at left
 
     "Um quadro só, borrado, tirado da fita da festa. A Lucy rindo perto da caixa de som. Ele de costas. E no canto, meio cortada, ela."
 
     m "Eu não tenho nenhuma foto dessa época. Nenhuma."
 
     m "Eles levaram tudo."
+
+    show daniel happy at left
 
     d "Agora você tem uma."
 
@@ -463,7 +482,8 @@ label cap3_fase24:
 label cap3_fase25:
 
     scene bg congresso
-    show mirela vhappy at center
+    show mirela vhappy at right
+    show daniel idle at left
 
     "Antes do resto, ela quis lembrar de uma coisa boa - e lembrou rindo."
 
@@ -486,9 +506,12 @@ label cap3_fase25:
         jump game_over
 
     scene bg congresso
-    show mirela vhappy at center
+    show mirela vhappy at right
+    show daniel idle at left
 
     m "Você perdia todas. Todas."
+
+    show daniel happy at left
 
     d "Eu deixava você ganhar."
 
@@ -540,7 +563,8 @@ label cap3_fase26:
     $ nome_dela = NOME_NOVO
 
     scene bg congresso
-    show mirela happy at center
+    show mirela happy at right
+    show daniel idle at left
     with dissolve
 
     m "No começo era só Mih. A Lucy que inventou, lembra? Servia pra qualquer coisa, não puxava nada atrás."
@@ -553,7 +577,9 @@ label cap3_fase26:
 
     m "E eu não voltei atrás. Não porque eu não pudesse - porque aquela ali já não era mais eu."
 
-    show mirela vhappy at center
+    show mirela vhappy at right
+
+    show daniel happy at left
 
     d "Eu fiz uma música pra você. Em 2014."
 

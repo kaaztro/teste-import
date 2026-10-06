@@ -42,6 +42,7 @@ label prologo:
     "Congresso de automação e controle, fim do primeiro dia. Coquetel no saguão do hotel: taças de plástico, conversa de crachá."
 
     show mirela happy at right
+    show daniel idle at left
     with dissolve
 
     m "...e aí o problema nem era o controlador, sabe? Era o encoder. Ninguém tinha olhado o encoder."
@@ -60,6 +61,8 @@ label prologo:
 
     m "Faz dez anos que ninguém me chama assim."
 
+    show daniel sad at left
+
     d "Você sumiu."
 
     m "Eu sei."
@@ -69,6 +72,9 @@ label prologo:
     m "Eu sei, Daniel."
 
     "Ela olhou pro saguão cheio, pro relógio, pra porta. Depois puxou duas cadeiras pro canto, longe da mesa do café."
+
+    show mirela idle at right
+    show daniel idle at left
 
     m "Senta. Se eu for contar, vai ter que ser do começo. Do fim não sai."
 

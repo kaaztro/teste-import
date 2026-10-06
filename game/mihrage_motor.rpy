@@ -56,12 +56,22 @@ image bg quarto = "bg washington.jpg"
 image bg aeroporto = "bg washington.jpg"
 image bg congresso = "bg whitehouse.jpg"
 
-image mirela happy = "eileen happy.png"
-image mirela vhappy = "eileen vhappy.png"
-image mirela concerned = "eileen concerned.png"
+# Sprites dos personagens: game/images/personagens/ (500x500, cortados
+# na cintura). O zoom 1.3 deixa eles na altura dos sprites do tutorial.
+image mirela idle = Transform("images/personagens/mih_idle.png", zoom=1.3)
+image mirela happy = Transform("images/personagens/mih_happy.png", zoom=1.3)
+image mirela sad = Transform("images/personagens/mih_sad.png", zoom=1.3)
+# Ainda não existem versões "muito feliz" e "preocupada": usam as mais
+# próximas. Quando a arte chegar, é só trocar o arquivo aqui.
+image mirela vhappy = Transform("images/personagens/mih_happy.png", zoom=1.3)
+image mirela concerned = Transform("images/personagens/mih_sad.png", zoom=1.3)
 
-# O Daniel de 2014 ela não consegue montar: só o contorno.
-image daniel sombra = "lucy happy.png"
+image daniel idle = Transform("images/personagens/daniel_idle.png", zoom=1.3)
+image daniel happy = Transform("images/personagens/daniel_happy.png", zoom=1.3)
+image daniel sad = Transform("images/personagens/daniel_sad.png", zoom=1.3)
+
+# O Daniel de 2014 ela não consegue montar: só o contorno dele.
+image daniel sombra = Transform("images/personagens/daniel_idle.png", zoom=1.3)
 
 image exclamation = "exclamation.png"
 image reconstrucao_icone = "logo solid.png"

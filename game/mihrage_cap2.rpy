@@ -50,6 +50,7 @@ label cap2_checkpoint:
 label cap2_fase7:
 
     scene bg quarto
+    show daniel idle at center
     with dissolve
 
     "O violão continuava encostado no canto do quarto, com a mesma corda desafinada de sempre."
@@ -77,6 +78,7 @@ label cap2_fase7:
         jump game_over
 
     scene bg quarto
+    show daniel idle at center
 
     play music "sunflower-slow-drag.ogg"
 
@@ -107,6 +109,7 @@ label cap2_fase8:
         jump game_over
 
     scene bg quarto
+    show daniel idle at center
 
     menu:
         "Pra quem ele liga?"
@@ -153,6 +156,7 @@ label cap2_fase9:
         jump game_over
 
     scene bg quarto
+    show daniel idle at center
 
     $ busca = renpy.input("Quem você está procurando?", default="Mirela").strip()
     $ busca = busca or "Mirela"
@@ -171,6 +175,7 @@ label cap2_fase10:
     $ quando = "2014 · lembrança dele"
 
     scene bg quarto
+    show daniel idle at center
 
     "No fundo da gaveta, uma fita que alguém tinha gravado na festa de junho."
 
@@ -193,8 +198,11 @@ label cap2_fase10:
         jump game_over
 
     scene bg quarto
+    show daniel idle at center
 
     "Doze segundos de câmera tremida: a Lucy rindo perto da caixa de som, ele de costas, e num canto do quadro, por menos de um segundo, ela."
+
+    show daniel sad at center
 
     d "É só isso que sobrou. Doze segundos, e ela aparece em um."
 
@@ -239,6 +247,10 @@ label cap2_fase11:
 
     d "\"Não há mais informações a prestar.\""
 
+    scene bg quarto
+    show daniel sad at center
+    with dissolve
+
     d "E acabou aí. Eu não tinha mais pra onde ligar, não tinha mais quem perguntar."
 
     mh "\"A pedido dos responsáveis.\" Que jeito educado de escrever aquilo."
@@ -269,10 +281,13 @@ label cap2_fase12:
 
     scene bg patio
 
-    show lucy happy at center
+    show lucy happy at right
+    show daniel idle at left
     with dissolve
 
     l "Você ainda pensa nisso, né?"
+
+    show daniel sad at left
 
     d "Todo dia um pouco menos."
 
@@ -291,6 +306,7 @@ label cap2_fase12:
 label cap2_fase13:
 
     scene bg quarto
+    show daniel idle at center
 
     hide lucy
     with dissolve
@@ -317,10 +333,13 @@ label cap2_fase13:
         jump game_over
 
     scene bg quarto
+    show daniel idle at center
 
     stop music fadeout 2
 
     "Ele postou num site de música, numa conta com zero seguidores. No título, só o nome dela."
+
+    show daniel happy at center
 
     d "Pronto. Existe."
 
